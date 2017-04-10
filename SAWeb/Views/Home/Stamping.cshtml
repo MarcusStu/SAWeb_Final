@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Stamping";
+}
+
+
+
+<header>
+
+    <div class="row">
+        <div class="col-lg-4 col-xs-4">
+            <div id="info_user_topleft_div">
+                <div class="pull-left" style="display: inline-block;" id="info_user_profilepic">
+
+                </div>
+
+                <div class="pull-left" style="display: inline-block; margin-left: 10px;">
+                    <text id="info_user_name" style="font-size: 15px;font-weight: bold;">Anders Andersson</text>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-4">
+            <h3 style="text-align: center;font-size: 19px; font-weight: bold;font-family: Arial Black;margin-top:5px;white-space: nowrap;">Påstämpling</h3>
+            <h3 style="text-align: center;font-weight:900;font-size:36px;margin-top: 10px;" class="clock" id="clock"></h3>
+        </div>
+
+        <div class="col-lg-4 col-xs-4">
+            <a href="#" class="pull-right" id="info_btn">
+                <img src="../../Content/img/Info.png" style="width: 30px;height: 32px;margin-top:10px;margin-left: 30px;" id="infoclose" />
+            </a>
+            <text class="pull-right" style="margin-left: 20px; font-weight: bold; padding-top: 8px;" id="week"></text>
+            <text class="pull-right" style="font-size: 15px; font-weight: bold; padding-top: 8px;" id="date"></text>
+        </div>
+
+        <!--Informationbox from button info_btn-->
+        <div class="messagepop pop">
+            <div id="messagebox_text">
+                <p>
+                    Här stämplar du på ditt jobb. Du kan även lägga till material, titta och skriva ut dokument, skriva kommentarer osv.
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--Tables-->
+<div class="row">
+    <div style="margin-left: 10px; margin-right: 10px; margin-top:5px;">
+        <div class="col-lg-12 col-xs-12">
+
+
+
+            <!--Vänster-topp ruta-->
+            <div style="width:30%; display: inline-block;">
+                @Html.Partial("~/Views/Home/Partials/Stamping/_JobbPartial.cshtml")
+                <!--Vänster knappar under rutan-->
+                <div style="margin-top: 0px;">
+                    <button class="stamp-buttons-bottom">
+                        <img src="~/Content/img/Pause.png" style="width: 25px;height: 25px;" />
+                        <text>Radera</text>
+                    </button>
+                    <button class="stamp-buttons-bottom">
+                        <img src="~/Content/img/Add.png" style="width: 25px;height: 25px;" />
+                        <text>Flerjobb</text>
+                    </button>
+
+                    <!--Visas om man är "Inne".-->
+                    <button class="stamp-buttons-bottom">
+                        <img src="~/Content/img/Add.png" style="width: 25px;height: 25px;" />
+                        <text>Sidojobb</text>
+                    </button>
+                </div>
+            </div>
+
+
+
+            <!--Höger ruta-->
+            <!--Partial View-->
+            <div class="pull-right stamp_info" style="width: 58%; display: inline-block; vertical-align: top;" id="stampInfo">
+                <div id="stampInfo_Content">
+                    @Html.Partial("~/Views/Home/Partials/Stamping/Ute/_OperationerPartial.cshtml")
+                </div>
+
+                <!--Höger Knappar under rutan-->
+                <div>
+                    <button class="pull-left stamp-buttons-bottom">
+                        <img src="~/Content/img/Add.png" style="width: 25px;height: 25px;" />
+                        <text style="white-space: nowrap">Lägg till</text>
+                    </button>
+                    <button class="pull-left stamp-buttons-bottom">
+                        <img src="~/Content/img/DeliverOrder.png" style="width: 25px;height: 25px;" />
+                        <text>Leverera</text>
+                    </button>
+                    <button class="pull-left stamp-buttons-bottom">
+                        <img src="~/Content/img/Delivery.png" style="width: 25px;height: 25px;" />
+                        <text>Utleverans</text>
+                    </button>
+                    <button class="pull-left stamp-buttons-bottom">
+                        <img src="~/Content/img/InDelivery.png" style="width: 25px;height: 25px;" />
+                        <text>Inleverans</text>
+                    </button>
+                    <button class="pull-left stamp-buttons-bottom" style="width: 120px;">
+                        <img src="~/Content/img/InDelivery.png" style="width: 25px;height: 25px;" />
+                        <text style="white-space: nowrap">Man. Inleverans</text>
+                    </button>
+                    <button class="pull-left stamp-buttons-bottom" style="width: 120px;">
+                        <img src="~/Content/img/Delivery.png" style="width: 25px;height: 25px;" />
+                        <text style="white-space: nowrap">Man. Utleverans</text>
+                    </button>
+
+                    <!--Visas om man är 'Ute'.-->
+                    <br />
+                    <button class="pull-left stamp-buttons-bottom">
+                        <img src="~/Content/img/Printer.png" style="width: 25px;height: 25px;" />
+                        <text>Arbetsorder</text>
+                    </button>
+                    <button class="pull-left stamp-buttons-bottom">
+                        <img src="~/Content/img/Printer.png" style="width: 25px;height: 25px;" />
+                        <text>Op.Lista</text>
+                    </button>
+                    <br />
+                    <!--Inne-->
+                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/InneInfo"><div class="stamp-info-buttons-left-InneInfo" id="stamp-info-buttons-left-InneInfo"><text>Info</text></div></a>
+                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/InneDokument"><div class="stamp-info-buttons-left-InneDokument" id="stamp-info-buttons-left-InneDokument"><text>Dokument</text></div></a>
+                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/InneKommentar"><div class="stamp-info-buttons-left-InneKommentar" id="stamp-info-buttons-left-InneKommentar"><text>Kommentar</text></div></a>
+                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/InneArtiklar"><div class="stamp-info-buttons-left-InneArtiklar" id="stamp-info-buttons-left-InneArtiklar"><text>Artiklar</text></div></a>
+                    <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/InneAvvikelse"><div class="stamp-info-buttons-left-InneAvvikelse" id="stamp-info-buttons-left-InneAvvikelse"><text>Avvikelse</text></div></a>
+
+
+                </div>
+
+                <!--(Av)Bockning-->
+                <div class="pull-right" style="margin-top: 0px;">
+
+                    <a class="pull-right" href='@Url.Action("Index", "Home")' style="width: 100px; height: 100px;">
+                        <div style="border:solid; border-color:blue; border-radius: 5px;"  id="Ok-Cancel">
+                            <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:50px; height: 50px; margin:25px;" />
+                        </div>
+                    </a>
+                    <a class="pull-right" href='@Url.Action("Index", "Home")'>
+                        <div style="border:solid; border-color:blue; border-radius: 5px; margin-right: 50px;">
+                            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:50px; height: 50px; margin:25px;" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!--Tabs till höger ruta-->
+            <div class="pull-right" id="stamp-info-buttons-left" style="display: inline-block; vertical-align: top; margin-top: 10px;">
+                <!--Ute-->
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteInfo"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteInfo"><text>Info</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteOperationer"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteOperationer"><text>Operationer</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteTillverkningsorder"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteTillverkningsorder"><text>Tillverkningsorder</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteOrderPerson"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteOrderPerson"><text>OrderPerson</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteSnabborder"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-Snabborder"><text>Snabborder</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteImproduktiva"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteImproduktiva"><text>Improduktiva</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteInstruktioner"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteInstruktioner"><text>Instruktioner</text></div></a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#stampInfo_Content" href="/Home/UteDokument"><div class="stamp-info-buttons-left-Ute" id="stamp-info-buttons-left-UteDokument"><text>Dokument</text></div></a>
+            </div>
+
+
+
+            <!--Vänster-botten ruta-->
+            <div style="width: 40%; display: inline-block;">
+                @Html.Partial("~/Views/Home/Partials/Stamping/_MaterialPartial.cshtml")
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<ng-view></ng-view>
+
+<script src="~/scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Content/js/jsfile.js"></script>

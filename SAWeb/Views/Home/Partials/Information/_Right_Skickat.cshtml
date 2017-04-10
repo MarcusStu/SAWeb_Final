@@ -1,0 +1,51 @@
+﻿<form>
+    <button type="reset" class="pull-left" id="info_resetbtn">
+        <img src="~/Content/img/CloseRed.png" class="pull-left;" style="width: 25px;height: 25px;" />
+    </button>
+    <input type="search" id="info_search_avs" />
+    <input type="search" id="info_search_mot" />
+
+    <table id="info_table_right" class="table">
+        <thead style="color: white;">
+            <tr style="border: solid; border-color: #868686; border-width: 1px;">
+                <th class="tablebgblue" style="width: 305px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Mottagare</th>
+                <th class="tablebgblue" style="width: 216px;border-right: 0px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Mottaget</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">System Andersson</td>
+                <td id="tabledtleft" style="width: 208px;">2016-07-05 10:30:48</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">Test1</td>
+                <td id="tabledtleft" style="width: 208px;">2016-02-03 11:30:48</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">Andreas</td>
+                <td id="tabledtleft" style="width: 208px;">2016-01-01 06:29:10</td>
+            </tr>
+        </tbody>
+    </table>
+    @*<div>
+        *@
+        @* Foreach repeater here *@
+        @*<div id="info_data1">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">System Andersson</text>
+        </div>
+        <div id="info_data2">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">2016-07-05 10:30:48</text>
+        </div>
+        <div id="info_data1">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">System Andersson</text>
+        </div>
+        <div id="info_data2">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">2016-09-07 13:37:56</text>
+        </div>
+    </div>*@
+</form>
+<script src="~/scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Content/js/jsfile.js"></script>

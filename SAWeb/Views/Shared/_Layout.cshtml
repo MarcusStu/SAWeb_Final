@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="SystemAndersson">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - System Andersson Web</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Content/img/favicon.ico" type="image/x-icon">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Content/swiper.min.css" rel="stylesheet" />*@
+
+
+
+</head>
+<body onload="startTime(), startDate(), startWeek()" ng-controller="MainCtrl">
+  
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
+    <div class="loader" id="loader"></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    @*<script data-require="angular.js@1.1.x" src="http://code.angularjs.org/1.1.5/angular.min.js" data-semver="1.1.5"></script>*@
+    @*<script src="~/scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="~/scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/js/jsfile.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.js"></script>
+    
+    @*<script src="~/Content/js/swiper.min.js"></script>
+    <script src="~/Content/js/dragend.js"></script>*@
+    
+</body>
+</html>

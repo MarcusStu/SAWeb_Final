@@ -1,0 +1,108 @@
+﻿<div class="pull-right" id="DivTable" style="height:510px; border: none; border-radius: 5px; border-width:1px; width:100%;">
+    <table class="table, pull-right" id="" style="border: none; border-color: gray; width:100%;">
+        <thead style="table-layout: fixed; ">
+            <tr>
+                <!--Skapar våra "Search Inputs" för att söka varje kolumn.-->
+                <th style="white-space: nowrap; ">
+                    <button ng-click="clearSearch()" style="width: 20px; border: none;">
+                        <img src="~/Content/img/CloseRed.png" style="width: 250%; min-width: 22%; margin-left: -6px;" />
+                    </button>
+                    <input ng-model="search.ArticleNo" style="width:68%;" />
+                </th>
+                <th><input ng-model="search.Description" /></th>
+                <th><input ng-model="search.PLATS" /></th>
+                <th><input ng-model="search.ENHET" /></th>
+                <th><input ng-model="search.PLAN" /></th>
+                <th><input ng-model="search.UTTAG" /></th>
+                <th><input ng-model="search.ANTAL" /></th>
+            </tr>
+        </thead>
+
+        <!--Skapar våra headers. Används också till sortering.-->
+        <thead class="tablebgblue">
+            <tr style="border: solid; border-color: gray; border-width: 1px;">
+                <th>
+                    <button ng-click="sortType = 'ArticleNo'; sortReverse = !sortReverse">
+                        Artikel
+                        <span ng-show="sortType == 'ArticleNo' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'ArticleNo' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'Description'; sortReverse = !sortReverse">
+                        Benämning
+                        <span ng-show="sortType == 'Description' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'Description' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'PLATS'; sortReverse = !sortReverse">
+                        Plats
+                        <span ng-show="sortType == 'PLATS' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'PLATS' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'ENHET'; sortReverse = !sortReverse">
+                        Enhet
+                        <span ng-show="sortType == 'ENHET' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'ENHET' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'PLAN'; sortReverse = !sortReverse">
+                        Plan
+                        <span ng-show="sortType == 'PLAN' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'PLAN' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'UTTAG'; sortReverse = !sortReverse">
+                        Uttag
+                        <span ng-show="sortType == 'UTTAG' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'UTTAG' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'Quantity'; sortReverse = !sortReverse">
+                        Antal
+                        <span ng-show="sortType == 'Quantity' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'Quantity' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!--Skapar en loop som fyller i lika många rader som finns i databasen den är länkad till.-->
+            <tr ng-mouseover="tableRowFunction()" ng-repeat="material in Material | orderBy:sortType:sortReverse | filter:searchColumn | filter:{ArticleNo: search.ArticleNo, Description: search.Description, PLATS: search.PLATS, ENHET: search.ENHET, PLAN: search.PLAN, UTTAG: search.UTTAG, Quantity: search.Quantity}">
+                <td>{{material.ArticleNo}}</td>
+                <td>{{material.Description}}</td>
+
+                <td>@*{{material.PLATS}}*@</td>
+                <td>@*{{material.ENHET}}*@</td>
+                <td>@*{{material.PLAN}}*@</td>
+                <td>@*{{material.UTTAG}}*@</td>
+
+                <td>{{material.Quantity}}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+</div>

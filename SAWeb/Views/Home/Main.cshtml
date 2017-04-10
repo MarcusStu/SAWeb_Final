@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+}
+
+<header>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div style="width: 100%; height: 125px; border: solid; border-color: grey; border-radius: 1px; border-width: 1px; margin-top: 8px;">
+                <!--id="info_user_topleft_div"-->
+                <img src="~/Content/img/SystemAnderssonHead.jpg" alt="Portrait" style="height: 124px; display: block; margin: auto; border-radius: 20%; padding-top:2px; padding-bottom:2px;" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h3 style="text-align: center; font-weight: bold;font-family: Arial Black;margin-top:5px;">FÖRNAMN OCH EFTERNAMN</h3><!--Andersson Rapportering-->
+            <h2 style="text-align:center;font-weight:900;margin-top: 10px;" class="clock" id="clock"></h2>
+            <h4 class="pull-left" style="font-weight: bold;" id="date"></h4>
+            <h4 class="pull-right" style="font-weight: bold;" id="week"></h4><br />
+        </div>  
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right">
+            <div style="margin-top: 8px; margin-right: 5px; border: solid; border-color: grey; border-radius: 1px; border-width: 1px; width: 100%; height: 125px;">
+                <div>
+                    <h1 class="text-center" style="font-family: Arial Black;">Välkommen!</h1>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</header>
+
+
+<div class="row" style="height: 580px; margin-top: 20px; overflow: hidden;">
+    <div class="col-lg-4 col-xs-4 pull-left">
+        <div id="" ng-include="jobbMaterialKnapp.url" class="partialAnimation" ng-class="{ override: $scope.options == true }">
+
+        </div>
+        @*<div style="border: solid; border-color: grey; border-radius: 5px; border-width: 1px; height: 580px;">
+            <div></div>
+            <a class="pull-right" href="" style="margin-right: 15px; border-radius:50%">
+                <div style="border:solid; border-width: 2px; border-color:white; border-radius: 50px; margin-right: 20px; margin-top: 545px; background-color: darkblue;">
+                    <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:25px; height: 25px; margin:20px;" />
+                </div>
+            </a>
+            <a class="pull-right" href="" style="margin-right: 15px;">
+                <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 545px; background-color: darkblue;">
+                    <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+                </div>
+            </a>
+            <a class="pull-right" href="" style="margin-right: 15px;">
+                <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 545px; background-color: darkblue;">
+                    <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:25px; height: 25px; margin:20px;" />
+                </div>
+            </a>
+        </div>*@
+    </div>
+    <div class="col-lg-1 col-xs-1"></div>
+    <div class="col-lg-7 col-xs-7 pull-right">
+        <div>
+            <div id="" ng-include="stampingKnapp.url" class="partialAnimation" ng-class="{ override: $scope.options == true }">
+
+            </div>
+            @*<a class="pull-left" href="" style="margin-left: 15px;">
+                <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 35px; background-color: darkblue;">
+                    <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+                </div>
+            </a>
+            <a class="pull-left" href="" style="margin-left: 15px;">
+                <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 35px; background-color: darkblue;">
+                    <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:25px; height: 25px; margin:20px;" />
+                </div>
+            </a>
+            <a class="pull-left" href="" style="margin-left: 15px;">
+                <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 35px; background-color: darkblue;">
+                    <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+                </div>
+            </a>*@
+        </div>
+    </div>
+</div>
+
+
+<div class="row" style="white-space:nowrap">
+    <div class="col-lg-12 col-xs-12" style="margin-top: 20px; text-align: center">
+        <a class="pull-left" href="" style="margin-left:0px; margin-right: 15px;">
+            <div style="border:solid; border-color:blue; border-radius: 100%;" id="Ok-Cancel">
+                <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:100px; height: 100px; margin:25px;" />
+            </div>
+        </a>
+
+        <a class="pull-right" href="" style="margin-right:0px; margin-left: 15px;">
+            <div style="border:solid; border-color:blue; border-radius: 100%;">
+                <img src='@Url.Content("~/Content/img/Ok.png")' style="width:100px; height: 100px; margin:25px;" />
+            </div>
+        </a>
+
+        <div class="" style="display: inline-block; margin: auto;">
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[6]">
+                <img src="~/Content/img/Add.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text style="text-decoration: line-through;">UteInfo</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[7]; loopUteOperationerOrderHead();">
+                <img src="~/Content/img/DeliverOrder.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text>UteOperationer</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[8]; loopUteTillverkningsorderOrderHead();" >
+                <img src="~/Content/img/Delivery.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text>UteTillverkningsorder</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[9]; loopUteOrderPersonOrderHead();">
+                <img src="~/Content/img/InDelivery.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text>UteOrderPerson</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[10]; loopUteSnabborderOrderHead();" >
+                <img src="~/Content/img/Add.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text>UteSnabborder</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[11]; loopUteImproduktivaOrderList();">
+                <img src="~/Content/img/DeliverOrder.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text>UteImproduktiva</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[12]">
+                <img src="~/Content/img/Delivery.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text style="text-decoration: line-through;">UteInstruktioner</text>
+            </button>
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="stampingKnapp = stampingKnappar[13]">
+                <img src="~/Content/img/InDelivery.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text style="text-decoration: line-through;">UteDokument</text>
+            </button>
+
+
+            <button class="button " style="width: 140px; height:110px; margin-top: 23px;" ng-click="jobbMaterialKnapp = jobbMaterialKnappar[2]; loopMaterialOrderHead();">
+                <img src="~/Content/img/Add.png" style="width: 50px;height: 50px;" />
+                <br />
+                <text>VÄNSTER_TEST</text>
+            </button>
+        </div>
+    </div>
+</div>
+
+<ng-view></ng-view>

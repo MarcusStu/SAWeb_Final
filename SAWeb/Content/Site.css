@@ -1,0 +1,984 @@
+﻿body {
+    padding-top: 1px;
+    padding-bottom: 20px;
+    color: #fff;
+    background-image: url('../../Content/img/TopHeader.png'), url('../../Content/img/BgTerminalAnet.jpg');
+    background-position: center top;
+    /*background-size:100%;*/
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+    color: #FFF;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+/*#info_btn {
+    margin-left: 20px;
+    font-size: 17px;
+    height: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 25px;
+}*/
+
+.btn-sq-xs {
+    margin-left: 20px;
+    width: 25px !important;
+    height: 25px !important;
+    padding: 2px;
+    margin-top: 12px;
+}
+
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+#user_box {
+    border: 1px solid white;
+    width: 300px;
+    height: 195px;
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 16px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: top;
+    border-style: outset;
+    border-top-style: outset;
+    border-left-style: outset;
+    border-bottom-style: inset;
+    border-right-style: inset;
+}
+
+#user_box_name {
+    /*padding-top: 3px;*/
+    padding-left: 15px;
+}
+
+#user_box_mail {
+    color: #3961d4;
+    /*margin-right: 5px;*/
+    margin-left: 5px;
+}
+
+#user_box_S {
+    width: 18px;
+    height: 20px;
+    font-size: 18.5px;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 0 5px, #ffffff 0px 0px 5px;
+}
+
+#user_box_F {
+    width: 18px;
+    height: 20px;
+    font-size: 18.5px;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 0 5px, #ffffff 0px 0px 5px;
+}
+
+#user_box_inorout_text {
+    padding-left: 20px;
+    font-style: italic;
+    color: #bdbdbd;
+}
+
+#user_box_inoroutstatus_out {
+    width: 80px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: outset;
+    margin-left: 12px;
+    background-color: #ce0000;
+    border-color: #ff7e7e;
+    display: inline-block;
+}
+
+#user_box_inoroutstatus_in {
+    width: 80px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: outset;
+    margin-left: 12px;
+    background-color: #00ce17;
+    border-color: #8aff7e;
+    display: inline-block;
+}
+
+#user_box_profilepic {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    border-width: 2px;
+    /*border-style: inset;*/
+    margin-left: 2px;
+    border-color: #FFF;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url('http://placehold.it/100x120');
+}
+
+.user_img {
+    background: #3961d4;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 3px;
+}
+
+#user_box_order_white {
+    width: 80px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    border-width: 2px;
+    /*border-style: outset;*/
+    margin-left: 2px;
+    border-color: #FFF;
+    background-color: #FFF;
+    display: inline-block;
+}
+
+#user_box_order_blue {
+    width: 80px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: outset;
+    margin-left: 2px;
+    border-color: #5c84ff;
+    background-color: #000bff;
+    display: inline-block;
+}
+
+#user_box_orderID {
+    padding-left: 18px;
+    color: #bdbdbd;
+}
+
+#user_box_ben {
+    padding-left: 25px;
+    color: #bdbdbd;
+}
+
+/* Informationbox CSS */
+/*a.selected {
+  background-color:#1F75CC;
+  color:white;
+  z-index:100;
+}*/
+
+.messagepop {
+    background-color: #000000;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    cursor: default;
+    display: none;
+    margin-right: 45px;
+    margin-top: 27px;
+    position: absolute;
+    text-align: left;
+    width: 430px;
+    height: 120px;
+    z-index: 50;
+    /*padding: 25px 25px 20px;*/
+    right: 0;
+    color: #FFFFFF;
+}
+
+#messagebox_text {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+#close_btn {
+    margin-right: 5px;
+}
+
+.close_icon {
+    content: url('../Content/img/Info_Close_trans.png');
+    /*opacity: 0.7;*/
+    z-index: 5;
+}
+
+.messagepop p, .messagepop.div {
+    /*border-bottom: 1px solid #EFEFEF;*/
+    margin: 8px 0;
+    padding-bottom: 8px;
+}
+
+
+
+/* Information page */
+#info_user_topleft_div {
+    margin-top: 10px;
+    width: 220px;
+    height: 50px;
+    /*border: 1px solid #bdbdbd;*/
+}
+
+#info_user_profilepic {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url('http://placehold.it/100x120');
+}
+
+#info_search_avs {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 314px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_search_mot {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 218px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_rightdiv {
+    height: 700px;
+    border: 1px solid #868686;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-radius: 5px;
+    width: 540px;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+#info_rightdiv_skicka {
+    height: 700px;
+    border: 1px solid #868686;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-radius: 5px;
+    width: 540px;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+#info_leftdiv {
+    height: 780px;
+    display: inline-block;
+    border: 1px solid #868686;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-radius: 5px;
+    width: 705px;
+    margin-top: 5px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
+#info_leftdiv_content {
+    margin-right: 8px;
+}
+
+#info_resetbtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#info_data1 {
+    display: inline-block;
+    width: 305px;
+}
+
+#info_data2 {
+    display: inline-block;
+    width: 208px;
+}
+
+/*#info_table_right_btns {
+    margin-top: 23px;
+    text-align: center;
+    font-weight: bold;
+}*/
+
+/*#info_table_right_btns_skicka {
+    margin-top: 23px;
+    text-align: center;
+    font-weight: bold;
+}*/
+
+/* Info Rightdiv Buttons */
+#info_table_right_btns_nya {
+    margin-top: 23px;
+}
+
+#info_table_right_btns_skicka_administration {
+    margin-top: 23px;
+}
+
+.info_table_right_btns_nya, .info_table_right_btns_lasta, .info_table_right_btns_skickat, .info_table_right_btns_skicka_administration, .info_table_right_btns_skicka_produktion {
+    /*margin-top: 23px;*/
+    text-align: center;
+    font-weight: bold;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-bottom-style: outset;
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    border-radius: 3px;
+    height: 40px;
+    width: 135px;
+    margin-right: 6px;
+    padding-top: 8px;
+    margin-bottom: 2px;
+}
+
+.clicked_right {
+    text-align: center;
+    font-weight: bold;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-bottom-style: outset;
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    border-radius: 3px;
+    height: 40px;
+    width: 135px;
+    margin-right: 1px;
+    padding-top: 8px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    /* Bakgrundsfärg on hover */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+13,474747+53,666666+75,595959+88,4c4c4c+100 */
+    background: #000000; /* Old browsers */
+    background: -moz-linear-gradient(left, #000000 13%, #474747 53%, #666666 75%, #595959 88%, #4c4c4c 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #000000 13%,#474747 53%,#666666 75%,#595959 88%,#4c4c4c 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #000000 13%,#474747 53%,#666666 75%,#595959 88%,#4c4c4c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4c4c4c',GradientType=1 ); /* IE6-9 */
+}
+
+/* Info Leftdiv Buttons */
+#info_leftdiv_btns_inkorg {
+    margin-top: 23px;
+}
+
+.info_leftdiv_btns_inkorg, .info_leftdiv_btns_skicka, .info_leftdiv_btns_tidbank, .info_leftdiv_btns_senastestamp, .info_leftdiv_btns_tidrapport {
+    /*margin-top: 23px;*/
+    text-align: center;
+    font-weight: bold;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-bottom-style: outset;
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    border-radius: 3px;
+    height: 40px;
+    width: 135px;
+    margin-right: 0px;
+    margin-left: 6px;
+    padding-top: 8px;
+    margin-bottom: 2px;
+}
+
+.clicked_left {
+    /*margin-top: 23px;*/
+    text-align: center;
+    font-weight: bold;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-bottom-style: outset;
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    border-radius: 3px;
+    height: 40px;
+    width: 135px;
+    margin-right: 0px;
+    margin-left: 1px;
+    padding-top: 8px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    /* Bakgrundsfärg on hover */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c4c4c+0,595959+12,666666+25,474747+47,000000+87 */
+    background: #4c4c4c; /* Old browsers */
+    background: -moz-linear-gradient(left, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 47%, #000000 87%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 47%,#000000 87%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 47%,#000000 87%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+}
+
+
+/* Info Left Pages */
+#info_leftdiv_inkorg {
+    height: 771px;
+    display: inline-block;
+    border: 1px solid #868686;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-radius: 5px;
+    width: 692px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+#flextid_box, #komptid_box {
+    padding-top: 8px;
+    padding-left: 2px;
+    width: 175px;
+    height: 40px;
+    border: 1px solid #868686;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-radius: 5px;
+    /* Bakgrundsfärg gradient på flextidsrutan */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#305f99+0,05407f+39,002672+83 */
+    background: rgb(48,95,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(48,95,153,1) 0%, rgba(5,64,127,1) 39%, rgba(0,38,114,1) 83%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(48,95,153,1) 0%,rgba(5,64,127,1) 39%,rgba(0,38,114,1) 83%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(48,95,153,1) 0%,rgba(5,64,127,1) 39%,rgba(0,38,114,1) 83%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#305f99', endColorstr='#002672',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+
+
+/* Info Senaste Stämplingar CSS */
+
+#info_senastestamp_search_order {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 40px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_senastestamp_search_resurs {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 80px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_senastestamp_search_operation {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 85px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_senastestamp_search_start {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 145px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_senastestamp_search_stop {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 145px;
+    float: left;
+    line-height: 21px;
+}
+
+#info_senastestamp_search_total {
+    background-color: black;
+    border: 1px solid #868686;
+    color: #FFF;
+    width: 165px;
+    float: left;
+    line-height: 21px;
+}
+
+#table_left_div {
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#info_table_right {
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.tablebgblue {
+    /* Bakgrundsfärg gradient på tabellen */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#305f99+0,05407f+39,002672+83 */
+    background: rgb(48,95,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(48,95,153,1) 0%, rgba(5,64,127,1) 39%, rgba(0,38,114,1) 83%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(48,95,153,1) 0%,rgba(5,64,127,1) 39%,rgba(0,38,114,1) 83%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(48,95,153,1) 0%,rgba(5,64,127,1) 39%,rgba(0,38,114,1) 83%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#305f99', endColorstr='#002672',GradientType=0 ); /* IE6-9 */
+}
+
+#tabledtleft {
+    padding-top: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    float: left;
+    border-bottom-width: 0px;
+    border-top: 0px;
+    height: 18px;
+}
+
+tbody:before {
+    content: "_";
+    color: transparent;
+    display: block;
+    line-height: 0.1em;
+}
+
+tbody tr {
+    table-layout:fixed;
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.row_highlighted {
+    border: 1px solid #ffdb00;
+    background: #4c4c4c;
+}
+
+.row_hover {
+    background: #4c4c4c;
+    border: 1px solid #bdbdbd;
+}
+
+
+
+
+
+
+table button {
+    border: none;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+}
+
+tbody {
+    border: solid;
+    border-right:hidden;
+    border-top: hidden;
+    border-width:1px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-color: darkgray;
+}
+
+th input {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+#stamp-info-buttons-left .stamp-info-buttons-left-Ute {
+    /*margin-top: 23px;*/
+    text-align: center;
+    font-weight: bold;
+    border-style: inset;
+    border-left-style: outset;
+    border-top-style: outset;
+    border-bottom-style: outset;
+    border: solid;
+    border-color: #868686;
+    border-width: 1px;
+    border-radius: 3px;
+    height: 40px;
+    width: 135px;
+    margin-right: 6px;
+    padding-top: 8px;
+    margin-bottom: 2px;
+}
+
+#stamp-info-buttons-left .stamp-info-buttons-left-Ute:hover {
+    margin-right: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    /* Bakgrundsfärg on hover */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+13,474747+53,666666+75,595959+88,4c4c4c+100 */
+    background: #000000; /* Old browsers */
+    background: -moz-linear-gradient(left, #000000 13%, #474747 53%, #666666 75%, #595959 88%, #4c4c4c 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #000000 13%,#474747 53%,#666666 75%,#595959 88%,#4c4c4c 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #000000 13%,#474747 53%,#666666 75%,#595959 88%,#4c4c4c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4c4c4c',GradientType=1 ); /* IE6-9 */
+}
+
+.stamp-buttons-bottom {
+    width: 90px;
+    height:50px;
+    background-color: transparent;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+th{
+    border: solid;
+    border-width: 1px;
+    border-color: gray;
+}
+/*Gör så varje udda rad inte har någon bakgrund.*/
+tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+/*Gör så varje jämn rad har en svag vit bakgrund.*/
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.Ok-Cancel:hover{
+    border-color: yellow;
+}
+
+tfoot {
+    display: table-header-group;
+}
+
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+        background-color: transparent;
+    }
+
+
+/*.table tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}*/
+
+.table input {
+    background-color: transparent;
+    border: none;
+}
+
+.filters input {
+    width: 100%;
+}
+
+#DivTest{
+    text-align: center;
+}
+
+.ButtonTest{
+  margin:auto;
+  display:block;
+}
+
+/*#region "Flashy" Knappar*/
+/*Animation till att lysa upp knapparna när man trycker på dem.
+    De är -inte- för <a> funktioner!*/
+button {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  background: #ffff00;
+  border-radius: 100%;
+  opacity: 0.8;
+
+  transform: scale(0);
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+button:not(:active):after {
+  animation: ripple 1s ease-out;
+}
+
+/* fixes initial animation run, without user input, on page load.
+ */
+button:after {
+  visibility: hidden;
+}
+
+button:focus:after {
+  visibility: visible;
+}
+
+/*#endregion*/
+
+/*#region Scrollbar*/
+/*Fixar så att Scrollbar alltid finns och tabellen inte ändrar storlek när den ska visas eller inte.*/
+tbody {
+    display:block;
+    height: 530px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+thead {
+    width: calc( 100% - 1.2em );
+}
+
+/*table {
+scrollbar-arrow-color: #dddd00;
+scrollbar-base-color: #dddd00;
+scrollbar-track-color: #000033;
+scrollbar-face-color: transparent;
+scrollbar-highlight-color: none;
+scrollbar-3dlight-color: none;
+scrollbar-darkshadow-color: none;
+scrollbar-shadow-color: transparent;
+}
+
+table::-webkit-scrollbar { 
+scrollbar-arrow-color: transparent;
+scrollbar-base-color: transparent;
+scrollbar-track-color: blue;
+scrollbar-face-color: transparent;
+scrollbar-highlight-color: transparent;
+scrollbar-3dlight-color: transparent;
+scrollbar-darkshadow-color: transparent;
+scrollbar-shadow-color: transparent;
+}*/
+
+/*table tbody::-webkit-scrollbar-track {
+    border:solid;
+    border-color: darkgray;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: transparent;
+}
+table tbody::-webkit-scrollbar{
+    width: 5px;
+	background-color: transparent;
+}
+
+table tbody::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}*/
+/*#endregion*/
+
+/*#region Tabell Animation*/
+/*Gör så att tabellen går upp när den ska visas, och ner när den ska bort.*/
+.partialAnimation.ng-enter, 
+.partialAnimation.ng-leave, 
+.partialAnimation.ng-move {
+  -webkit-transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -o-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+  position:relative;
+  height: 580px;
+}
+ 
+.partialAnimation.ng-enter {
+    transition-delay:0.5s;
+  top: 600px;
+  opacity:1;
+}
+.partialAnimation.ng-enter.ng-enter-active {
+    transition-delay:0.5s;
+  top:0;
+  opacity:1;
+}
+ 
+.partialAnimation.ng-leave {
+  top:-580px;
+  opacity:1;
+}
+.partialAnimation.ng-leave.ng-leave-active {
+  top:600px;
+  opacity:1;
+}
+ 
+.partialAnimation.ng-move {
+  opacity:0.5;
+}
+.partialAnimation.ng-move.ng-move-active {
+  opacity:1;
+}
+/*#endregion*/
+
+/*#region Loader Animation*/
+/*Lägger in all 'grafik' till en 'loader' som visas när hemsidan laddas.*/
+.loader {
+    border: 5px solid transparent;
+    border-radius: 50%;
+    border-top: 5px solid #aaaa00;
+    border-right: 5px solid #0000aa;
+    border-bottom: 5px solid #aaaa00;
+    border-left: 5px solid #0000aa;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    margin-top: -550px;
+    margin-left: calc(50% - 15px);
+}
+/*Hur mycket den roterar.*/
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*#endregion*/
+
+/*#region Ändring av layout via bootstrap på mindre skärmar.*/
+/*Bootstrap storleks ändringar.*/
+/* Landscape phones and portrait tablets */
+@media (min-width: 480px) and ( max-width: 767px) {
+text, p, th, td {
+    font-size: 0.85em;
+}
+h1{
+    font-size: 1.85em;
+}
+h2{
+    font-size: 1.35em;
+}
+h3{
+    font-size: 1.2em;
+}
+h4{
+    font-size: 0.85em;
+}
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+text, p, th, td {
+    font-size: 0.90em;
+}
+h1{
+    font-size: 1.90em;
+}
+h2{
+    font-size: 1.40em;
+}
+h3{
+    font-size: 1.25em;
+}
+h4{
+    font-size: 0.90em;
+}
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+text, p, th, td {
+    font-size: 0.95em;
+}
+h1{
+    font-size: 2em;
+}
+h2{
+    font-size: 1.5em;
+}
+h3{
+    font-size: 1.4em;
+}
+h4{
+    font-size: 1em;
+}
+}
+/*#endregion*/

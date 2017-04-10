@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Information";
+}
+
+<header>
+    <div class="row">
+        <div class="col-lg-4 col-xs-4">
+            <div id="info_user_topleft_div">
+                <div class="pull-left" style="display: inline-block;" id="info_user_profilepic">
+
+                </div>
+
+                <div class="pull-left" style="display: inline-block; margin-left: 10px;">
+                    <text id="info_user_name" style="font-size: 15px;font-weight: bold;">Anders Andersson</text>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-xs-4">
+            <h3 style="text-align: center;font-size: 19px; font-weight: bold;font-family: Arial Black;margin-top:5px;white-space: nowrap;">Information</h3>
+            <h3 style="text-align: center;font-weight:900;font-size:36px;margin-top: 10px;" class="clock" id="clock"></h3>
+        </div>
+
+        <div class="col-lg-4 col-xs-4">
+            <a href="#" class="pull-right" id="info_btn">
+                <img src="../../Content/img/Info.png" style="width: 30px;height: 32px;margin-top:10px;margin-left: 30px;" id="infoclose" />
+            </a>
+            <text class="pull-right" style="margin-left: 20px; font-weight: bold; padding-top: 8px;" id="week"></text>
+            <text class="pull-right" style="font-size: 15px; font-weight: bold; padding-top: 8px;" id="date"></text>
+        </div>
+
+        @* Informationbox from button info_btn *@
+        <div class="messagepop pop">
+            <div id="messagebox_text">
+                <p>
+                    info
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <div class="col-lg-12 col-xs-12">
+        <div class="pull-left" id="info_leftdiv">
+            @* Load partial links into this div with ajax *@
+            <div id="info_leftdiv_content"></div>
+        </div>
+        @* Leftdiv Buttons *@
+        <div class="pull-left" id="info_leftdiv_btns">
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_leftdiv_content" href="/Home/Inkorg"><div class="pull-left info_leftdiv_btns_inkorg" id="info_leftdiv_btns_inkorg"><text style="text-align:center;font-size: 13px;">Inkorg</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_leftdiv_content" href="/Home/Skicka"><div class="pull-left info_leftdiv_btns_skicka" id="info_leftdiv_btns_skicka"><text style="text-align:center;font-size: 13px;">Skicka</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_leftdiv_content" href="/Home/Tidbank"><div class="pull-left info_leftdiv_btns_tidbank" id="info_leftdiv_btns_tidbank"><text style="text-align:center;font-size: 13px;">Tidbank</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_leftdiv_content" href="/Home/Senastestamp"><div class="pull-left info_leftdiv_btns_senastestamp" id="info_leftdiv_btns_senastestamp"><text style="text-align:center;font-size: 13px;">Senaste stämplingar</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_leftdiv_content" href="/Home/Tidrapport"><div class="pull-left info_leftdiv_btns_tidrapport" id="info_leftdiv_btns_tidrapport"><text style="text-align:center;font-size: 13px;">Tid rapport</text></div></a>
+        </div>
+        <div class="pull-right" id="info_rightdiv">
+            @* Load this div in partial view *@
+            <div id="info_rightdiv_content">
+
+            </div>
+        </div>
+
+        <div class="pull-right" id="info_rightdiv_skicka">
+            @* Load this div in partial view *@
+            <div id="info_rightdiv_skicka_content">
+
+            </div>
+        </div>
+
+        <div class="pull-right" id="info_table_right_btns">
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_rightdiv_content" href="/Home/Nya"><div class="pull-right info_table_right_btns_nya" id="info_table_right_btns_nya"><text style="text-align:center;font-size: 13px;">Nya</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_rightdiv_content" href="/Home/Lasta"><div class="pull-right info_table_right_btns_lasta" id="info_table_right_btns_lasta"><text style="text-align:center;font-size: 13px;">Lästa</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_rightdiv_content" href="/Home/Skickat"><div class="pull-right info_table_right_btns_skickat" id="info_table_right_btns_skickat"><text style="text-align:center;font-size: 13px;">Skickat</text></div></a>
+        </div>
+        <div class="pull-right" id="info_table_right_btns_skicka">
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_rightdiv_skicka_content" href="/Home/Skicka_Administration"><div class="pull-right info_table_right_btns_skicka_administration" id="info_table_right_btns_skicka_administration"><text style="text-align:center;font-size: 13px;">Administration</text></div></a>
+            <br />
+            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#info_rightdiv_skicka_content" href="/Home/Skicka_Produktion"><div class="pull-right info_table_right_btns_skicka_produktion" id="info_table_right_btns_skicka_produktion"><text style="text-align:center;font-size: 13px;">Produktion</text></div></a>
+        </div>
+        <div class="pull-right" style="position: absolute;bottom: 0;right: 0;top: 90%;margin-right: 20px;margin-top: 20px;">
+            <button class="pull-right" style="width: 100px; height:100px; background-color: transparent; border-color:blue; border-radius: 5px; ">
+                <img src="~/Content/img/CloseRed.png" style="width: 50px;height: 50px;" />
+            </button>
+            <button class="pull-right" style="width: 100px; height:100px; background-color: transparent; border-color:blue; border-radius: 5px; margin-right: 25px;">
+                <img src="~/Content/img/Ok.png" style="width: 50px;height: 50px;" />
+            </button>
+        </div>
+    </div>
+</div>

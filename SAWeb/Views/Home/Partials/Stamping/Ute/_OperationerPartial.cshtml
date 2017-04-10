@@ -1,0 +1,116 @@
+﻿<div class="pull-right" id="DivTable" style="height:510px; border: none; border-radius: 5px; border-width:1px; width:100%;">
+    <table class="table, pull-right" id="" style="border: none; border-color: gray; width:100%;">
+        <thead style="table-layout: fixed; ">
+            <tr>
+                <!--Skapar våra "Search Inputs" för att söka varje kolumn.-->
+                <th style="white-space: nowrap; ">
+                    <button ng-click="clearSearch()" style="width: 20px; border: none;" >
+                        <img src="~/Content/img/CloseRed.png" style="width: 250%; min-width: 22%; margin-left: -6px;"  />
+                    </button>
+                    <input ng-model="search.ProductionOrderNo" style="width:73%;" />
+                </th>
+                <th><input ng-model="search.Description"/></th>
+                <th><input ng-model="search.ResourceNo"/></th>
+                <th><input ng-model="search.ResourceDescription"/></th>
+                <th><input ng-model="search.OperationNo"/></th>
+                <th><input ng-model="search.OperationDescription"/></th>
+                <th><input ng-model="search.Prio"/></th>
+                <th><input ng-model="search.OrderDate"/></th>
+                <th><input ng-model="search.ArticleNo"/></th>
+                <th><input ng-model="search.CustomerName"/></th>
+            </tr>
+        </thead>
+
+        <!--Skapar våra headers. Används också till sortering.-->
+        <thead class="tablebgblue">
+            <tr style="border: solid; border-color: gray; border-width: 1px;">
+                <th> <button ng-click ="sortType = 'ProductionOrderNo'; sortReverse = !sortReverse">
+    Order
+    <span ng-show="sortType == 'ProductionOrderNo' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'ProductionOrderNo' && sortReverse" class="fa fa-caret-up"></span>
+    </button>
+</th>
+                <th> <button ng-click="sortType = 'Description'; sortReverse = !sortReverse">
+    Benämning
+    <span ng-show="sortType == 'Description' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'Description' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'ResourceNo'; sortReverse = !sortReverse">
+                        Resurs
+    <span ng-show="sortType == 'ResourceNo' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'ResourceNo' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'ResourceDescription'; sortReverse = !sortReverse">
+    Resurs.Ben
+    <span ng-show="sortType == 'ResourceDescription' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'ResourceDescription' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'OperationNo'; sortReverse = !sortReverse">
+    Op.
+    <span ng-show="sortType == 'OperationNo' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'OperationNo' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'OperationDescription'; sortReverse = !sortReverse">
+    Op.Ben
+    <span ng-show="sortType == 'OperationDescription' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'OperationDescription' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'Prio'; sortReverse = !sortReverse">
+    Prio
+    <span ng-show="sortType == 'Prio' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'Prio' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'OrderDate'; sortReverse = !sortReverse">
+    StartDatum
+    <span ng-show="sortType == 'OrderDate' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'OrderDate' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'ArticleNo'; sortReverse = !sortReverse">
+    Artikel
+    <span ng-show="sortType == 'ArticleNo' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'ArticleNo' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+                <th><button ng-click="sortType = 'CustomerName'; sortReverse = !sortReverse">
+    Kund
+    <span ng-show="sortType == 'CustomerName' && !sortReverse" class="fa fa-caret-down"></span>
+    <span ng-show="sortType == 'CustomerName' && sortReverse" class="fa fa-caret-up"></span>
+</button></th>
+            </tr>
+        </thead>
+        
+            <tbody>
+                <!--Skapar en loop som fyller i lika många rader som finns i databasen den är länkad till.-->
+                <tr ng-mouseover="tableRowFunction()" ng-repeat="operation in UteOperationer | orderBy:sortType:sortReverse | filter:searchColumn | filter:{ProductionOrderNo: search.ProductionOrderNo, Description: search.Description, ResourceNo: search.ResourceNo, ResourceDescription: search.ResourceDescription, OperationNo: search.OperationNo, OperationDescription: search.OperationDescription, Prio: search.Prio, OrderDate: search.OrderDate, ArticleNo: search.ArticleNo, CustomerName: search.CustomerName}">
+                        <td>{{operation.ProductionOrderNo}}</td>
+                        <td>{{operation.Description}}</td>
+
+                        <td>@*{{operation.ResourceNo}}*@</td>
+                        <td>@*{{operation.ResourceDescription}}*@</td>
+                        <td>@*{{operation.OperationNo}}*@</td>
+                        <td>@*{{operation.OperationDescription}}*@</td>
+
+                        <td>{{operation.Prio}}</td>
+                        <td>{{operation.OrderDate | date:'yyyy-MM-dd'}}</td>
+                        <td>{{operation.ArticleNo}}</td>
+                        <td>{{operation.CustomerName}}</td>
+                    </tr>
+                
+
+            </tbody>
+</table>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+</div>

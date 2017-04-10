@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<header>
+
+    <div class="row">
+
+        <div class="col-lg-4 col-xs-4">
+        </div>
+
+        <div class="col-lg-4 col-xs-4" style="text-align: center;">
+            <h3 style="text-align: center;font-size: 19px; font-weight: bold;font-family: Arial Black;margin-top:5px;margin-bottom:0px;white-space: nowrap;">Andersson Rapportering</h3>
+            <h3 style="text-align: center;font-weight:900;font-size:75px;margin-top: 0px;line-height: 70px;margin-bottom:0px;" class="clock" id="clock"></h3>
+            <text class="" style="font-size: 17px; font-weight: bold; padding-top: 8px;" id="date"></text>
+            &nbsp;&nbsp;<text class="" style="margin-left: 20px; font-weight: bold; padding-top: 8px;font-size:17px;" id="week"></text>
+
+        </div>
+
+        <div class="col-lg-4 col-xs-4">
+            <a href="#" class="pull-right" id="info_btn">
+                <img src="../../Content/img/Info.png" style="width: 30px;height: 32px;margin-top:10px;margin-left: 30px;" id="infoclose" />
+            </a>
+
+
+        </div>
+
+        @* Informationbox from button info_btn *@
+        <div class="messagepop pop">
+            <div id="messagebox_text">
+                <p>
+                    System Andersson har över 30års erfarenhet av att spara tid och pengar åt våra kunder. Idag är vi marknadsledande och 25 000 medarbetare
+                    använder våra produkter varje dag. Med innovativa lösningar och kunden i focus har vi utvecklat lättanvända produkter som skapat största
+                    möjliga effektiviering åt våra kunder.
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="row">
+    <div class="col-lg-12 col-xs-12">
+        <div class="swiper-container" style="text-align: center;height:810px;overflow-y:hidden;">
+            <div class="swiper-wrapper">
+                <!--<ul>-->
+                <!--<li class="first dragend-page" style="margin: 0px; float: left; overflow-y: auto; overflow-x: hidden; padding: 0px; display: block; width: 500px;">-->
+                <div class="swiper-slide">
+
+
+                    <!-- Foreach Repeater here -->
+                    @foreach (var user in @ViewBag.UserList)
+            {
+                        <div id="user_box">
+                            <!-- User Name -->
+                            <div style="width: 180px;display:inline-block;">
+                                <text id="user_box_name">@user.DisplayName</text>
+                            </div>
+
+                            <!-- User Mail/S/F (Sidoarbete, Flerjobb) Icon -->
+                            @*<text id="user_box_mail" class="pull-right"><i class="fa fa-envelope" aria-hidden="true"></i></text>*@
+                            <div style="width: 94px;display:inline-block;text-align:right;">
+                                @*<text id="user_box_mail" class="pull-right"><img class="user_img" width="18" height="15" src="~/Content/img/mail_icon.png" /></text>*@
+                            </div>
+
+                            <br />
+
+                            <!-- User In or Out -->
+                            <text id="user_box_inorout_text">
+                                @if (@user.InOutInfo == "In")
+                {
+                                    @:Inne
+                }
+                                @if (@user.InOutInfo == "Out" || @user.InOutInfo == "Unknown" || @user.InOutInfo == "Ut")
+                {
+                                    @:Ute
+                }
+                            </text>
+
+                            <br />
+
+                            <!-- Icons (loginstatus, profile picture, ordersmenu) -->
+                            @if (@user.InOutInfo == "In")
+                {
+                                <a href="#"><div id="user_box_inoroutstatus_in"></div></a>
+                            }
+                            @if (@user.InOutInfo == "Out" || @user.InOutInfo == "Unknown" || @user.InOutInfo == "Ut")
+                {
+                                <a href="#"><div id="user_box_inoroutstatus_out"></div></a>
+                            }
+                            <a href="#"><div id="user_box_profilepic"></div></a>
+                            <a href="#"><div id="user_box_order_white"></div></a>
+
+                            <!-- OrderID -->
+                            <div style="width: 40px;height:15px;text-align: right;display: inline-block;">
+                                <text id="user_box_orderID" style="text-align: right;">Order:</text>
+                            </div>
+                            <div style="width: 40px;height:15px;text-align: left;display: inline-block;">
+                                &nbsp;<text style="color:#FFF;padding-left: 14px;">@user.ResourceId</text>
+                            </div>
+                            <br />
+                            <!-- Ben -->
+                            <!-- "Vänta arbete" = Hide OrderID -->
+                            <div style="width: 40px;height:15px;text-align: right;display: inline-block;">
+                                &nbsp;&nbsp;<text id="user_box_ben" style="text-align: right;">Ben:</text>
+                            </div>
+                            <div style="width: 40px;height:15px;text-align: left;width: 220px;display: inline-block;">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: #FFF;font-size: 12px;">Vänta arbete</text>
+                            </div>
+                        </div>
+                    }
+                    <div class="swiper-pagination" style="margin-top:20px;padding-top:20px;"></div>
+                    <div id="hidden_div1"></div>
+                    <div id="hidden_div2"></div>
+                    <div id="hidden_div3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

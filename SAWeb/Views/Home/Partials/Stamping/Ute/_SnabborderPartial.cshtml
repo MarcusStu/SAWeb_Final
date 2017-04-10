@@ -1,0 +1,103 @@
+﻿<!--Något annorlunda css p.g.a längre sorterings knappar. Får den gula effekten att gå hela vägen.-->
+<style>
+    button:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 600px;
+        height: 600px;
+        margin-left: -300px;
+        margin-top: -300px;
+        background: #ffff00;
+        border-radius: 100%;
+        opacity: 0.8;
+        transform: scale(0);
+    }
+</style>
+
+<div class="pull-right" id="DivTable" style="height:510px; border: none; border-radius: 5px; border-width:1px; width:100%;">
+    <table class="table, pull-right" id="" style="border: none; border-color: gray; width:100%;">
+        <thead style="table-layout: fixed; ">
+            <tr>
+                <!--Skapar våra "Search Inputs" för att söka varje kolumn.-->
+                <th style="white-space: nowrap; ">
+                    <button ng-click="clearSearch()" style="width: 20px; border: none;">
+                        <img src="~/Content/img/CloseRed.png" style="width: 250%; min-width: 22%; margin-left: -6px;" />
+                    </button>
+                    <input ng-model="search.CustomerNo" style="width:74%;" />
+                </th>
+                <th><input ng-model="search.Description" style="width:150%" /></th>
+            </tr>
+        </thead>
+
+        <!--Skapar våra headers. Används också till sortering.-->
+        <thead class="tablebgblue">
+            <tr style="border: solid; border-color: gray; border-width: 1px;">
+                <th>
+                    <button ng-click="sortType = 'CustomerNo'; sortReverse = !sortReverse">
+                        Kundnummer
+                        <span ng-show="sortType == 'CustomerNo' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'CustomerNo' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+                </th>
+                <th>
+                    <button ng-click="sortType = 'CustomerName'; sortReverse = !sortReverse">
+                        Kund
+                        <span ng-show="sortType == 'CustomerName' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'CustomerName' && sortReverse" class="fa fa-caret-up"></span>
+                    </button>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!--Skapar en loop som fyller i lika många rader som finns i databasen den är länkad till.-->
+            <tr ng-mouseover="tableRowFunction()" ng-repeat="snabborder in UteSnabborder | orderBy:sortType:sortReverse | filter:searchColumn | filter:{CustomerNo: search.CustomerNo, CustomerName: search.CustomerName}">
+                <td>{{snabborder.CustomerNo}}</td>
+                <td>{{snabborder.CustomerName}}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/CloseRed.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+    <a class="pull-left" href="" style="margin-left: 15px;">
+        <div style="border:solid; border-width: 2px; border-color:white; border-radius: 100%; margin-right: 20px; margin-top: 1px; background-color: darkblue;">
+            <img src='@Url.Content("~/Content/img/Ok.png")' style="width:25px; height: 25px; margin:20px;" />
+        </div>
+    </a>
+</div>
+
+<div style="position: absolute; bottom:-68px;">
+    <!--Kund: Kundnummber & Kund. Gamla Snabbjobb: Order & Kund.-->
+    <button id="Kund_Button" style="text-decoration: line-through; width: 130px; height: 40px; background-color: transparent; border-radius:3px; border-width: 1px;">Kund</button><!--Default-->
+    <button id="Gamla_Button" style="text-decoration: line-through; width: 130px; height: 40px; background-color: transparent; border-radius:3px; border-width: 1px;">Gamla Snabbjobb</button>
+</div>
+
+<script>
+    window.onload = onloadShow();
+
+    function onloadShow() {
+        $("#TableKund").show();
+        $("#TableGamla").hide();
+    }
+$("#Kund_Button").click(function () {
+    $("#TableKund").show();
+    $("#TableGamla").hide();
+});
+
+$("#Gamla_Button").click(function () {
+    $("#TableGamla").show();
+    $("#TableKund").hide();
+});
+</script>

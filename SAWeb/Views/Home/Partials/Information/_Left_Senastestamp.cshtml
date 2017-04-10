@@ -1,0 +1,70 @@
+﻿<form>
+    <a href="#" class="pull-left clearField" id="info_resetbtn">
+        <img src="~/Content/img/CloseRed.png" class="pull-left;" style="width: 25px;height: 25px;" />
+    </a>
+    <input class="filterInput" type="text" id="info_senastestamp_search_order" onkeyup="inputFilter()" />
+    <input class="filterInput" type="text" id="info_senastestamp_search_resurs" onkeyup="inputFilter()" />
+    <input class="filterInput" type="text" id="info_senastestamp_search_operation" onkeyup="inputFilter()" />
+    <input class="filterInput" type="text" id="info_senastestamp_search_start" />
+    <input class="filterInput" type="text" id="info_senastestamp_search_stop" />
+    <input class="filterInput" type="text" id="info_senastestamp_search_total" />
+
+    <table id="table_left_div" class="table">
+        <thead style="color: white;">
+            <tr style="border: solid; border-color: #868686; border-width: 1px;">
+                <th class="tablebgblue" style="width: 65px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Order</th>
+                <th class="tablebgblue" style="width: 80px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Resurs</th>
+                <th class="tablebgblue" style="width: 85px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Operation</th>
+                <th class="tablebgblue" style="width: 145px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Start</th>
+                <th class="tablebgblue" style="width: 145px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Stop</th>
+                <th class="tablebgblue" style="width: 163px;float: left;border-bottom-width: 0px;height: 46px;padding-top: 12px;">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 65px;padding-top:3px;">1000</td>
+                <td id="tabledtleft" style="width: 80px;">13</td>
+                <td id="tabledtleft" style="width: 85px;">10</td>
+                <td id="tabledtleft" style="width: 145px;">2017-01-16 08:21:41</td>
+                <td id="tabledtleft" style="width: 145px;">2017-01-16 08:22:04</td>
+                <td id="tabledtleft" style="width: 161px;">0:00:22</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 65px;">3258</td>
+                <td id="tabledtleft" style="width: 80px;">13</td>
+                <td id="tabledtleft" style="width: 85px;">10</td>
+                <td id="tabledtleft" style="width: 145px;">2017-01-16 08:21:41</td>
+                <td id="tabledtleft" style="width: 145px;">2017-01-16 08:22:04</td>
+                <td id="tabledtleft" style="width: 161px;">0:00:22</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 65px;">9205</td>
+                <td id="tabledtleft" style="width: 80px;">13</td>
+                <td id="tabledtleft" style="width: 85px;">10</td>
+                <td id="tabledtleft" style="width: 145px;">2017-01-16 08:21:41</td>
+                <td id="tabledtleft" style="width: 145px;">2017-01-16 08:22:04</td>
+                <td id="tabledtleft" style="width: 161px;">0:00:22</td>
+            </tr>
+        </tbody>
+    </table>
+    @*<div>
+        @* Foreach repeater here *@
+        @*<div id="info_data1">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">System Andersson</text>
+        </div>
+        <div id="info_data2">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">2016-07-05 10:30:48</text>
+        </div>
+        <div id="info_data1">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">System Andersson</text>
+        </div>
+        <div id="info_data2">
+            <text style="font-size: 13px;font-weight: bold;font-family: Arial;">2016-09-07 13:37:56</text>
+        </div>
+    </div>*@
+</form>
+<script src="~/scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Content/js/jsfile.js"></script>

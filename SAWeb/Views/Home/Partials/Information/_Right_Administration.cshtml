@@ -1,0 +1,33 @@
+﻿<form>
+    <button type="reset" class="pull-left" id="info_resetbtn">
+        <img src="~/Content/img/CloseRed.png" class="pull-left;" style="width: 25px;height: 25px;" />
+    </button>
+    <input type="search" id="info_search_mot" style="max-width:none;width: 498px;" />
+    <table id="info_table_right" class="table">
+        <thead style="color: white;">
+            <tr style="border: solid; border-color: #868686; border-width: 1px;">
+                <th class="tablebgblue" style="width: 521px;border-right: 2px solid #868686;float: left;border-bottom-width: 0px;border-right:0px;height: 46px;padding-top: 12px;">Mottagare</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">Anders Andersson</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">Kalle Andersson</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">Peter Andersson</td>
+            </tr>
+            <tr>
+                @* Foreach Loop Here *@
+                <td id="tabledtleft" style="width: 305px;padding-top:3px;">Markus Andersson</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<script src="~/scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Content/js/jsfile.js"></script>
